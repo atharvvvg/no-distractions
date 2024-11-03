@@ -1,0 +1,26 @@
+{
+    "manifest_version": 3,
+    "name": "Distraction Blocker",
+    "version": "1.0",
+    "description": "Blocks distracting websites with a fake error page.",
+    "permissions": ["tabs", "storage", "declarativeNetRequest"],
+    "web_accessible_resources": [
+      {
+        "resources": ["error.png"],
+        "matches": ["<all_urls>"]
+      }
+    ],
+    "action": {
+      "default_popup": "options.html"
+    },
+    "background": {
+      "service_worker": "background.js"
+    },
+    "content_scripts": [
+      {
+        "matches": ["<all_urls>"],
+        "js": ["content.js"]
+      }
+    ]
+  }
+  
